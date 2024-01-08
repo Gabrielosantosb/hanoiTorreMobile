@@ -15,11 +15,9 @@ export default function App() {
     <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} />   
-      <Stack.Screen name="Game" component={Game} />   
       <Stack.Screen name="EasyLevel" component={EasyLevel} />   
       <Stack.Screen name="MediumLevel" component={MediumLevel} />   
-      <Stack.Screen name="HardLevel" component={HardLevel} />   
-      {/* Adicione outras telas conforme necessário */}
+      <Stack.Screen name="HardLevel" component={HardLevel} />         
     </Stack.Navigator>
   </NavigationContainer>
   );

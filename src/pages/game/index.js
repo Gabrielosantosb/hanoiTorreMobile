@@ -7,6 +7,7 @@ import {
 } from "./styles";
 import { TowerComponent } from "../../components/tower";
 import { YouWinModal } from "../../modal/YouWinModal";
+import { Text } from "react-native";
 
 export const Game = ({ navigation, numberOfDisks }) => {
   const [movements, setMovements] = useState(0);
@@ -115,6 +116,7 @@ export const Game = ({ navigation, numberOfDisks }) => {
 
   return (
     <TowerContainer>
+    
       <TowerComponent
         tower={tower1}
         onSelectDisk={(disk) => selectDisk(disk, 1)}
