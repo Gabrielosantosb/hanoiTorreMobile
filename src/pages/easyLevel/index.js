@@ -121,6 +121,7 @@ export const EasyLevel = ({ navigation }) => {
         selectedDisk={selectedDisk}
         onPress={() => handleTowerPress(1)}
       />
+        
       <TowerComponent
         tower={tower2}
         onSelectDisk={(disk) => selectDisk(disk, 2)}

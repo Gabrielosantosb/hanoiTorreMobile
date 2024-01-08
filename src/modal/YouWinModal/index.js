@@ -1,5 +1,6 @@
 import React from 'react';
-import { ModalContainer, ModalContent, Title,Button, ButtonText } from './styles';
+import { ModalContainer, ModalContent, Title,Button, ButtonText } from '../styles';
+
 
 // import { Container } from './styles';
 

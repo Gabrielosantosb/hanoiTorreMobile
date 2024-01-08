@@ -24,6 +24,14 @@ export const LevelButton = styled.TouchableOpacity`
   border-radius: 5px;
 `;
 
+
+export const HowtoPlayButton = styled.TouchableOpacity`
+  background-color: purple;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+`;
+
 export const ButtonText = styled.Text`
   color: #fff;
   font-size: 16px;
