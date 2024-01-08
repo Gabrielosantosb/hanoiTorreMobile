@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Disk,
   TowerContainer,
@@ -6,6 +6,7 @@ import {
   Tower,
 } from "../../pages/easyLevel/styles";
 import { TowerComponent } from "../../components/tower";
+import { YouWinModal } from "../../modal/YouWinModal";
 
 export const EasyLevel = ({ navigation }) => {
   const [movements, setMovements] = useState(0);
@@ -14,11 +15,24 @@ export const EasyLevel = ({ navigation }) => {
   const [tower3, setTower3] = useState([]);
   const [selectedDisk, setSelectedDisk] = useState(null);
   const [selectedTower, setSelectedTower] = useState(null);
+  const [gameOver, setGameOver] = useState(false);
+
+  useEffect(() => {
+    checkGameOver();
+  }, [tower3]);
 
   const selectDisk = (disk, tower) => {
     console.log("Disco selecionado", disk);
-    setSelectedDisk(disk);
-    setSelectedTower(tower);
+
+    const towerArray = getTowerArray(tower);
+
+    // Verificar se o disco selecionado é o disco no topo da torre
+    if (disk === towerArray[towerArray.length - 1]) {
+      setSelectedDisk(disk);
+      setSelectedTower(tower);
+    } else {
+      console.log("Apenas o disco no topo da torre pode ser selecionado");
+    }
   };
 
   const moveDisk = (fromTower, toTower) => {
@@ -83,6 +97,22 @@ export const EasyLevel = ({ navigation }) => {
     }
   };
 
+  const checkGameOver = () => {
+    if (tower3.length === 3) {
+      setGameOver(true);
+    }
+  };
+
+  const resetGame = () => {
+    setTower1([3, 2, 1]);
+    setTower2([]);
+    setTower3([]);
+    setMovements(0);
+    setSelectedDisk(null);
+    setSelectedTower(null);
+    setGameOver(false);
+  };
+
   return (
     <TowerContainer>
       <TowerComponent
@@ -102,6 +132,11 @@ export const EasyLevel = ({ navigation }) => {
         onSelectDisk={(disk) => selectDisk(disk, 3)}
         selectedDisk={selectedDisk}
         onPress={() => handleTowerPress(3)}
+      />
+      <YouWinModal
+        isVisible={gameOver}
+        onClose={resetGame}
+        movements={movements}
       />
     </TowerContainer>
   );

@@ -10,13 +10,25 @@ export const HanoiContainer = styled.View`
   flex-direction: column;
   background-color: aqua;
 `;
+
+export const TowerContainer = styled.View`
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #636e47;
+  border: 4px solid black;
+  border-radius: 8px;
+`;
+
 export const TorreContainer = styled.View`
   width: 300px;
   height: 800px;
   margin-top: 10%;
   margin-left: 10%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: #636e47;
@@ -37,17 +49,12 @@ export const Tower = styled.TouchableOpacity`
   height: 200px;
   width: 20px;
   border-radius: 20px 0 10px;
-  margin: 50px 30px 0 30px;
+  
+  margin: 50px;
   background-color: black;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-`;
-
-export const TowerContainer = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 20px;
 `;
 
 export const Disk = styled.View`
