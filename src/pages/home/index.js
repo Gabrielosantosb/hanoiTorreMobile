@@ -13,16 +13,13 @@ export const Home = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const handleLevelPress = (level) => {
     switch (level) {
-      case "Fácil":
-        console.log(`Botão ${level} pressionado`);
+      case "Fácil":      
         navigation.navigate("EasyLevel");
         break;
-      case "Médio":
-        console.log(`Botão ${level} pressionado`);
+      case "Médio":      
         navigation.navigate("MediumLevel");
         break;
-      case "Difícil":
-        console.log(`Botão ${level} pressionado`);
+      case "Difícil":      
         navigation.navigate("HardLevel");
         break;
       default:
