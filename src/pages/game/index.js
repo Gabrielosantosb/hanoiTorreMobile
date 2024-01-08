@@ -98,7 +98,7 @@ export const Game = ({ navigation, numberOfDisks }) => {
   };
 
   const checkGameOver = () => {
-    if (tower3.length === 3) {
+    if (tower3.length === numberOfDisks.length) {
       setGameOver(true);
     }
   };
