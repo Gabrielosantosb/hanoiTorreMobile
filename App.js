@@ -3,7 +3,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { Home } from './src/pages/home';
-import { EasyLevel } from './src/pages/easyLevel';
+import { Game } from './src/pages/game';
+import { EasyLevel } from './src/pages/level/EasyLevel';
+import { MediumLevel } from './src/pages/level/MediumLevel';
+import { HardLevel } from './src/pages/level/HardLevel';
+
 
 export default function App() {
   const Stack = createStackNavigator()
@@ -11,7 +15,10 @@ export default function App() {
     <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} />   
+      <Stack.Screen name="Game" component={Game} />   
       <Stack.Screen name="EasyLevel" component={EasyLevel} />   
+      <Stack.Screen name="MediumLevel" component={MediumLevel} />   
+      <Stack.Screen name="HardLevel" component={HardLevel} />   
       {/* Adicione outras telas conforme necessário */}
     </Stack.Navigator>
   </NavigationContainer>

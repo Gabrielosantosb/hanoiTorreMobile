@@ -4,13 +4,13 @@ import {
   TowerContainer,
   DiskTouchable,
   Tower,
-} from "../../pages/easyLevel/styles";
+} from "./styles";
 import { TowerComponent } from "../../components/tower";
 import { YouWinModal } from "../../modal/YouWinModal";
 
-export const EasyLevel = ({ navigation }) => {
+export const Game = ({ navigation, numberOfDisks }) => {
   const [movements, setMovements] = useState(0);
-  const [tower1, setTower1] = useState([3, 2, 1]);
+  const [tower1, setTower1] = useState(numberOfDisks);
   const [tower2, setTower2] = useState([]);
   const [tower3, setTower3] = useState([]);
   const [selectedDisk, setSelectedDisk] = useState(null);
@@ -18,6 +18,7 @@ export const EasyLevel = ({ navigation }) => {
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
+    console.log('numero', numberOfDisks)
     checkGameOver();
   }, [tower3]);
 
@@ -91,7 +92,6 @@ export const EasyLevel = ({ navigation }) => {
   };
 
   const handleTowerPress = (tower) => {
-    console.log("Torre selecionada", tower);
     if (selectedDisk !== null && selectedTower !== null) {
       moveDisk(selectedTower, tower);
     }

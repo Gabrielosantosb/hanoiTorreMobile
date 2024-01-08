@@ -10,14 +10,26 @@ import {
 import { HowToPlayModal } from "../../modal/howToPlay";
 
 export const Home = ({ navigation }) => {
-  const [modalVisible, setModalVisible] = useState(false)
+  const [modalVisible, setModalVisible] = useState(false);
   const handleLevelPress = (level) => {
-    if ((level = "Facil")) {
-      console.log(`Botão ${level} pressionado`);
-      navigation.navigate("EasyLevel");
+    switch (level) {
+      case "Fácil":
+        console.log(`Botão ${level} pressionado`);
+        navigation.navigate("EasyLevel");
+        break;
+      case "Médio":
+        console.log(`Botão ${level} pressionado`);
+        navigation.navigate("MediumLevel");
+        break;
+      case "Difícil":
+        console.log(`Botão ${level} pressionado`);
+        navigation.navigate("HardLevel");
+        break;
+      default:
+        break;
     }
   };
-  
+
   return (
     <Container>
       <Title>Torre de Hanoi</Title>
@@ -46,7 +58,10 @@ export const Home = ({ navigation }) => {
         </HowtoPlayButton>
       </ButtonContainer>
 
-      <HowToPlayModal isVisible={modalVisible} onClose={() => setModalVisible(false)} />
+      <HowToPlayModal
+        isVisible={modalVisible}
+        onClose={() => setModalVisible(false)}
+      />
     </Container>
   );
 };
