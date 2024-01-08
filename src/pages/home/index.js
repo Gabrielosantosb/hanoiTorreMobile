@@ -18,7 +18,6 @@ export const Home = ({ navigation }) => {
     }
   };
   
-
   return (
     <Container>
       <Title>Torre de Hanoi</Title>

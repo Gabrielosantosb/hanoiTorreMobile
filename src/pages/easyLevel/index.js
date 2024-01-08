@@ -31,7 +31,7 @@ export const EasyLevel = ({ navigation }) => {
       setSelectedDisk(disk);
       setSelectedTower(tower);
     } else {
-      console.log("Apenas o disco no topo da torre pode ser selecionado");
+      alert("Apenas o disco no topo da torre pode ser selecionado");
     }
   };
 
