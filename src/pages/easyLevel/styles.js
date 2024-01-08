@@ -24,7 +24,6 @@ export const TorreContainer = styled.View`
   border-radius: 8px;
 `;
 
-
 export const MovementsContainer = styled.View`
   margin-bottom: 20px;
 `;
@@ -34,12 +33,15 @@ export const MovementsText = styled.Text`
   margin-bottom: 5px;
 `;
 
-export const Tower = styled.View`
+export const Tower = styled.TouchableOpacity`
   height: 200px;
-  width: 10px;
+  width: 20px;
   border-radius: 20px 0 10px;
-  margin-bottom: 20px; /* Add margin to create space between towers */
+  margin: 50px 30px 0 30px;
   background-color: black;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 `;
 
 export const TowerContainer = styled.View`
@@ -51,8 +53,46 @@ export const TowerContainer = styled.View`
 export const Disk = styled.View`
   height: 30px;
   width: ${(props) => props.size * 30}px;
-  background-color: #e74c3c;
-  margin-bottom: 5px;
+  background-color: ${(props) => (props.selected ? "#00ff00" : "#e74c3c")};
+  margin-bottom: ${(props) => (props.selected ? "50px" : "5px")};
+  border: 3px solid black;
+  border-radius: 10px;
+`;
+export const Disk1 = styled.View`
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 60px;
+  height: 25px;
+  background-color: red;
+`;
+export const Disk2 = styled.View`
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 90px;
+  height: 25px;
+  background-color: blue;
+`;
+export const Disk3 = styled.View`
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 120px;
+  height: 25px;
+  background-color: yellow;
+`;
+export const Disk4 = styled.View`
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 150px;
+  height: 25px;
+  background-color: green;
+`;
+
+export const Disk5 = styled.View`
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 60px;
+  height: 25px;
+  background-color: red;
 `;
 
 export const EndGameContainer = styled.View`
