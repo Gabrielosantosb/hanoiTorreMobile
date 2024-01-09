@@ -11,7 +11,7 @@ export const HanoiContainer = styled.View`
   background-color: aqua;
 `;
 
-export const TowerContainer = styled.View`
+export const GameContainer = styled.View`
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -21,6 +21,23 @@ export const TowerContainer = styled.View`
   border: 4px solid black;
   border-radius: 8px;
 `;
+
+export const TowerContainer = styled.View `
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const TowerText = styled.Text `
+  color: #000; 
+  font-size: 24px;
+  font-weight: bold; 
+  text-align: center; 
+  margin-top: 12px; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+`
 
 export const TorreContainer = styled.View`
   width: 300px;

@@ -4,10 +4,14 @@ import {
   TowerContainer,
   DiskTouchable,
   Tower,
+  GameContainer,
+  TowerText,
 } from "./styles";
 import { TowerComponent } from "../../components/tower";
 import { YouWinModal } from "../../modal/YouWinModal";
 import { Text } from "react-native";
+import ToastMessage from "../../components/toast";
+import { TimerText } from "../../components/timer/styles";
 
 export const Game = ({ navigation, numberOfDisks }) => {
   const [movements, setMovements] = useState(0);
@@ -19,21 +23,19 @@ export const Game = ({ navigation, numberOfDisks }) => {
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
-    console.log('numero', numberOfDisks)
     checkGameOver();
   }, [tower3]);
 
   const selectDisk = (disk, tower) => {
-    console.log("Disco selecionado", disk);
-
     const towerArray = getTowerArray(tower);
-
-    // Verificar se o disco selecionado é o disco no topo da torre
+    // Verificar se o disco selecionado é o disco do topo
     if (disk === towerArray[towerArray.length - 1]) {
       setSelectedDisk(disk);
       setSelectedTower(tower);
     } else {
-      alert("Apenas o disco no topo da torre pode ser selecionado");
+      ToastMessage({
+        message: "Apenas o disco no topo da torre pode ser selecionado",
+      });
     }
   };
 
@@ -54,7 +56,7 @@ export const Game = ({ navigation, numberOfDisks }) => {
 
         setMovements(movements + 1);
       } else {
-        console.log("Movimento inválido");
+        ToastMessage({ message: "Movimento inválido" });
       }
     }
   };
@@ -115,32 +117,41 @@ export const Game = ({ navigation, numberOfDisks }) => {
   };
 
   return (
-    <TowerContainer>
-    
-      <TowerComponent
-        tower={tower1}
-        onSelectDisk={(disk) => selectDisk(disk, 1)}
-        selectedDisk={selectedDisk}
-        onPress={() => handleTowerPress(1)}
-      />
-        
-      <TowerComponent
-        tower={tower2}
-        onSelectDisk={(disk) => selectDisk(disk, 2)}
-        selectedDisk={selectedDisk}
-        onPress={() => handleTowerPress(2)}
-      />
-      <TowerComponent
-        tower={tower3}
-        onSelectDisk={(disk) => selectDisk(disk, 3)}
-        selectedDisk={selectedDisk}
-        onPress={() => handleTowerPress(3)}
-      />
+    <GameContainer>
+      <TowerContainer>
+        <TowerComponent
+          tower={tower1}
+          onSelectDisk={(disk) => selectDisk(disk, 1)}
+          selectedDisk={selectedDisk}
+          onPress={() => handleTowerPress(1)}
+        />
+        <TowerText>Inicio</TowerText>
+      </TowerContainer>
+
+      <TowerContainer>
+        <TowerComponent
+          tower={tower2}
+          onSelectDisk={(disk) => selectDisk(disk, 2)}
+          selectedDisk={selectedDisk}
+          onPress={() => handleTowerPress(2)}
+        />
+        <TowerText>Apoio</TowerText>
+      </TowerContainer>
+
+      <TowerContainer>
+        <TowerComponent
+          tower={tower3}
+          onSelectDisk={(disk) => selectDisk(disk, 3)}
+          selectedDisk={selectedDisk}
+          onPress={() => handleTowerPress(3)}
+        />
+        <TowerText>Final</TowerText>
+      </TowerContainer>
       <YouWinModal
         isVisible={gameOver}
         onClose={resetGame}
         movements={movements}
       />
-    </TowerContainer>
+    </GameContainer>
   );
 };
