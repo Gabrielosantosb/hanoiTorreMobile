@@ -7,7 +7,6 @@ import {
 } from "./styles";
 import { TowerComponent } from "../../components/tower";
 import { YouWinModal } from "../../modal/YouWinModal";
-import { BackButton } from "../../components/backButton";
 import ToastMessage from "../../components/toast";
 import { Timer } from "../../components/timer";
 import { BasicButton } from "../../components/BasicButton";
