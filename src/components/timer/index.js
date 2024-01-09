@@ -1,26 +1,37 @@
-import React, { useState, useEffect } from "react";
-import { Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
 import { TimerContainer, TimerText } from "./styles";
 
-export const Timer = () => {
+export const Timer = ({ gameOver, resetTimer }) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setSeconds((prevSeconds) => (prevSeconds + 1) % 60);
-      setMinutes((prevMinutes) => Math.floor((prevMinutes + (seconds + 1) / 60) % 60));
-    }, 1000);
+    let intervalId;
+
+    if (!gameOver && !resetTimer) {
+      intervalId = setInterval(() => {
+        setSeconds((prevSeconds) => (prevSeconds + 1) % 60);
+        setMinutes((prevMinutes) =>
+          Math.floor((prevMinutes + (seconds + 1) / 60) % 60)
+        );
+      }, 1000);
+    }
 
     return () => clearInterval(intervalId);
-  }, [seconds, minutes]);
+  }, [gameOver, resetTimer, seconds, minutes]);
+
+  useEffect(() => {
+    if (resetTimer) {
+      setSeconds(0);
+      setMinutes(0);
+    }
+  }, [resetTimer]);
 
   return (
-    <TimerContainer>
-      <TimerText>
-        {String(minutes).padStart(2, "0")}:
-        {String(seconds).padStart(2, "0")}
-      </TimerText>
-    </TimerContainer>
+    
+    <>
+      {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
+    </>
+    
   );
 };

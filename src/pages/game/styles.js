@@ -22,22 +22,34 @@ export const GameContainer = styled.View`
   border-radius: 8px;
 `;
 
-export const TowerContainer = styled.View `
-  
+export const TowerContainer = styled.View`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
-export const TowerText = styled.Text `
-  color: #000; 
-  font-size: 24px;
+export const StyledTowerText = styled.Text`
+  position: absolute;
+  font-size: 30px;
+  color: #333; 
   font-weight: bold; 
-  text-align: center; 
-  margin-top: 12px; 
-  text-transform: uppercase; 
   letter-spacing: 1px; 
-`
+  text-align: center;
+  top: 0;
+  margin-top: 50px;
+`;
+export const HeaderContainer = styled.Text`
+  position: absolute;
+`;
+export const TowerText = styled.Text`
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+`;
 
 export const TorreContainer = styled.View`
   width: 300px;
@@ -66,7 +78,6 @@ export const Tower = styled.TouchableOpacity`
   height: 200px;
   width: 20px;
   border-radius: 20px 0 10px;
-  
   margin: 50px;
   background-color: black;
   display: flex;

@@ -6,8 +6,7 @@ import { Timer } from "../../../components/timer";
 export const EasyLevel = ({ navigation }) => {
   return (
     <>
-      <Timer />
-      <Game navigation={navigation} numberOfDisks={[3, 2, 1]} />
+      <Game navigation={navigation} numberOfDisks={[3, 2, 1]} minMoviments = {7} />
     </>
   );
 };

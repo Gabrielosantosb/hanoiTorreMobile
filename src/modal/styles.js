@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const ModalContainer = styled.View`
   flex: 1;
   position: absolute;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   width: 100%;
+  margin-bottom: 50%;
 `;
 
 export const ModalContent = styled.View`
@@ -16,6 +17,8 @@ export const ModalContent = styled.View`
 `;
 
 export const Title = styled.Text`
+  
+  text-align: center;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;

@@ -6,14 +6,16 @@ import {
   Tower,
   GameContainer,
   TowerText,
+  HeaderContainer,
+  StyledTowerText,
 } from "./styles";
 import { TowerComponent } from "../../components/tower";
 import { YouWinModal } from "../../modal/YouWinModal";
 import { Text } from "react-native";
 import ToastMessage from "../../components/toast";
-import { TimerText } from "../../components/timer/styles";
+import { Timer } from "../../components/timer";
 
-export const Game = ({ navigation, numberOfDisks }) => {
+export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
   const [movements, setMovements] = useState(0);
   const [tower1, setTower1] = useState(numberOfDisks);
   const [tower2, setTower2] = useState([]);
@@ -21,6 +23,7 @@ export const Game = ({ navigation, numberOfDisks }) => {
   const [selectedDisk, setSelectedDisk] = useState(null);
   const [selectedTower, setSelectedTower] = useState(null);
   const [gameOver, setGameOver] = useState(false);
+  const [resetTimer, setResetTimer] = useState(false);  
 
   useEffect(() => {
     checkGameOver();
@@ -114,44 +117,53 @@ export const Game = ({ navigation, numberOfDisks }) => {
     setSelectedDisk(null);
     setSelectedTower(null);
     setGameOver(false);
+    setResetTimer(true);
+    setTimeout(() => setResetTimer(false), 0);
   };
 
   return (
-    <GameContainer>
-      <TowerContainer>
-        <TowerComponent
-          tower={tower1}
-          onSelectDisk={(disk) => selectDisk(disk, 1)}
-          selectedDisk={selectedDisk}
-          onPress={() => handleTowerPress(1)}
-        />
-        <TowerText>Inicio</TowerText>
-      </TowerContainer>
+    <>
+      <GameContainer>
+        <StyledTowerText>
+          {movements} movimentos em:
+          <Timer gameOver={gameOver} resetTimer={resetTimer} />
+        </StyledTowerText>
+        <TowerContainer>
+          <TowerComponent
+            tower={tower1}
+            onSelectDisk={(disk) => selectDisk(disk, 1)}
+            selectedDisk={selectedDisk}
+            onPress={() => handleTowerPress(1)}
+          />
+          <TowerText>Inicio</TowerText>
+        </TowerContainer>
 
-      <TowerContainer>
-        <TowerComponent
-          tower={tower2}
-          onSelectDisk={(disk) => selectDisk(disk, 2)}
-          selectedDisk={selectedDisk}
-          onPress={() => handleTowerPress(2)}
-        />
-        <TowerText>Apoio</TowerText>
-      </TowerContainer>
+        <TowerContainer>
+          <TowerComponent
+            tower={tower2}
+            onSelectDisk={(disk) => selectDisk(disk, 2)}
+            selectedDisk={selectedDisk}
+            onPress={() => handleTowerPress(2)}
+          />
+          <TowerText>Apoio</TowerText>
+        </TowerContainer>
 
-      <TowerContainer>
-        <TowerComponent
-          tower={tower3}
-          onSelectDisk={(disk) => selectDisk(disk, 3)}
-          selectedDisk={selectedDisk}
-          onPress={() => handleTowerPress(3)}
+        <TowerContainer>
+          <TowerComponent
+            tower={tower3}
+            onSelectDisk={(disk) => selectDisk(disk, 3)}
+            selectedDisk={selectedDisk}
+            onPress={() => handleTowerPress(3)}
+          />
+          <TowerText>Final</TowerText>
+        </TowerContainer>
+        <YouWinModal
+          isVisible={gameOver}
+          onClose={resetGame}
+          movements={movements}
+          minMoviments = {minMoviments}
         />
-        <TowerText>Final</TowerText>
-      </TowerContainer>
-      <YouWinModal
-        isVisible={gameOver}
-        onClose={resetGame}
-        movements={movements}
-      />
-    </GameContainer>
+      </GameContainer>
+    </>
   );
 };
