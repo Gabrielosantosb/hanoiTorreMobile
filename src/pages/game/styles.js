@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
 
-export const HanoiContainer = styled.View`
-  width: 250px;
-  height: 800px;
-  margin-left: 20%;
-  gap: 0;
-  margin-top: 10%;
-  flex-direction: column;
-  background-color: aqua;
-`;
-
 export const GameContainer = styled.View`
   height: 100%;
   display: flex;
@@ -18,8 +8,8 @@ export const GameContainer = styled.View`
   align-items: center;
   justify-content: center;
   background-color: #636e47;
-  border: 4px solid black;
-  border-radius: 8px;
+  /* border: 4px solid black;
+  border-radius: 8px; */
 `;
 
 export const TowerContainer = styled.View`
@@ -36,11 +26,9 @@ export const StyledTowerText = styled.Text`
   letter-spacing: 1px; 
   text-align: center;
   top: 0;
-  margin-top: 50px;
+  margin-top: 30%;
 `;
-export const HeaderContainer = styled.Text`
-  position: absolute;
-`;
+
 export const TowerText = styled.Text`
   color: #000;
   font-size: 24px;
@@ -51,19 +39,7 @@ export const TowerText = styled.Text`
   letter-spacing: 1px;
 `;
 
-export const TorreContainer = styled.View`
-  width: 300px;
-  height: 800px;
-  margin-top: 10%;
-  margin-left: 10%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: #636e47;
-  border: 4px solid black;
-  border-radius: 8px;
-`;
+
 
 export const MovementsContainer = styled.View`
   margin-bottom: 20px;
@@ -92,42 +68,6 @@ export const Disk = styled.View`
   margin-bottom: ${(props) => (props.selected ? "50px" : "5px")};
   border: 3px solid black;
   border-radius: 10px;
-`;
-export const Disk1 = styled.View`
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 60px;
-  height: 25px;
-  background-color: red;
-`;
-export const Disk2 = styled.View`
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 90px;
-  height: 25px;
-  background-color: blue;
-`;
-export const Disk3 = styled.View`
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 120px;
-  height: 25px;
-  background-color: yellow;
-`;
-export const Disk4 = styled.View`
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 150px;
-  height: 25px;
-  background-color: green;
-`;
-
-export const Disk5 = styled.View`
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 60px;
-  height: 25px;
-  background-color: red;
 `;
 
 export const EndGameContainer = styled.View`

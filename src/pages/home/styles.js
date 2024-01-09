@@ -1,39 +1,44 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const HomeContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0;
+  background-color: #636e47;
 `;
 
-export const Title = styled.Text`
-  font-size: 24px;
+export const HomeTitle = styled.Text`
+  font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: #fff;
 `;
 
-export const ButtonContainer = styled.View`
+export const HomeButtonContainer = styled.View`
   margin-top: 20px;
 `;
 
-export const LevelButton = styled.TouchableOpacity`
-  background-color: #3498db;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+export const HomeButton = styled.TouchableOpacity`
+  background-color: #333;
+  padding: 12px 24px;
+  margin-bottom: 15px;
+  border-radius: 8px;
 `;
 
+export const HomeButtonText = styled.Text`
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+`;
 
 export const HowtoPlayButton = styled.TouchableOpacity`
-  background-color: purple;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  background-color: #a346ff;
+  padding: 12px 24px;
+  border-radius: 8px;
 `;
 
-export const ButtonText = styled.Text`
+export const HowtoPlayButtonText = styled.Text`
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 `;

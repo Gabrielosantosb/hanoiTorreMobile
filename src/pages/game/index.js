@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
 import {
-  Disk,
   TowerContainer,
-  DiskTouchable,
-  Tower,
   GameContainer,
   TowerText,
-  HeaderContainer,
   StyledTowerText,
 } from "./styles";
 import { TowerComponent } from "../../components/tower";
 import { YouWinModal } from "../../modal/YouWinModal";
-import { Text } from "react-native";
+import { BackButton } from "../../components/backButton";
 import ToastMessage from "../../components/toast";
 import { Timer } from "../../components/timer";
+import { BasicButton } from "../../components/BasicButton";
 
 export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
   const [movements, setMovements] = useState(0);
@@ -23,7 +20,7 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
   const [selectedDisk, setSelectedDisk] = useState(null);
   const [selectedTower, setSelectedTower] = useState(null);
   const [gameOver, setGameOver] = useState(false);
-  const [resetTimer, setResetTimer] = useState(false);  
+  const [resetTimer, setResetTimer] = useState(false);
 
   useEffect(() => {
     checkGameOver();
@@ -109,6 +106,10 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
     }
   };
 
+  const backButton = () =>{
+    navigation.pop()
+  }
+
   const resetGame = () => {
     setTower1([3, 2, 1]);
     setTower2([]);
@@ -124,6 +125,7 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
   return (
     <>
       <GameContainer>
+        <BasicButton onPress={backButton} />
         <StyledTowerText>
           {movements} movimentos em:
           <Timer gameOver={gameOver} resetTimer={resetTimer} />
@@ -161,7 +163,7 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
           isVisible={gameOver}
           onClose={resetGame}
           movements={movements}
-          minMoviments = {minMoviments}
+          minMoviments={minMoviments}
         />
       </GameContainer>
     </>
