@@ -8,3 +8,8 @@ Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) instala
 No terminal, de o comando "npm install" para instalar as dependencias
 
 Após isso "npx expo start" para iniciar o projeto
+
+## Tecnologias usadas
+-React Native
+-Expo
+-Styled-Components...
