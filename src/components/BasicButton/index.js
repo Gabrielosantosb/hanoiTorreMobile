@@ -1,12 +1,21 @@
 import React from "react";
 
-import { ButtonText, LeftButtonContainer } from "./styles";
+import { ButtonText, ButtonContainer, RightButtonContainer, LeftButtonContainer } from "./styles";
 
-
-export const BasicButton = ({ onPress, title }) => {
-  return (
-    <LeftButtonContainer onPress={onPress} style={{ padding: 10 }}>
-      <ButtonText>{title || "Voltar"}</ButtonText>
-    </LeftButtonContainer>
-  );
+export const BasicButton = ({ onPress, title, left, right, ...props }) => {
+  if (right)
+    return (
+      <RightButtonContainer onPress={onPress}>
+        <ButtonText>{title}</ButtonText>
+      </RightButtonContainer>
+    );
+  if (left)
+    return (
+      <LeftButtonContainer onPress={onPress}>
+        <ButtonText>{title}</ButtonText>
+      </LeftButtonContainer>
+    );
+    <ButtonContainer onPress={onPress}>
+    <ButtonText>{title}</ButtonText>
+  </ButtonContainer>
 };

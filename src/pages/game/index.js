@@ -124,7 +124,8 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
   return (
     <>
       <GameContainer>
-        <BasicButton onPress={backButton} />
+        <BasicButton onPress={backButton} title={'Voltar'}  left />
+        <BasicButton   onPress={resetGame} title={'Resetar'} right/>
         <StyledTowerText>
           {movements} movimentos em:
           <Timer gameOver={gameOver} resetTimer={resetTimer} />
