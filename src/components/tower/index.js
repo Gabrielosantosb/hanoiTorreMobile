@@ -3,8 +3,7 @@ import { Disk, Disk1, Tower, TowerContainer } from "../../pages/game/styles";
 import { DiskTouchable } from "./styles";
 
 export const TowerComponent = ({ tower, onSelectDisk, selectedDisk, onPress }) => {
-  const handleDiskClick = (disk) => {
-    console.log("Clicou no disco", disk);
+  const handleDiskClick = (disk) => {    
     onSelectDisk(disk);
   };
 
