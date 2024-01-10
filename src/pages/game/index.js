@@ -110,7 +110,7 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
   }
 
   const resetGame = () => {
-    setTower1([3, 2, 1]);
+    setTower1(numberOfDisks);
     setTower2([]);
     setTower3([]);
     setMovements(0);
