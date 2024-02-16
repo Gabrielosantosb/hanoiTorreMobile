@@ -27,6 +27,7 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
 
   const selectDisk = (disk, tower) => {
     const towerArray = getTowerArray(tower);
+    
     // Verificar se o disco selecionado é o disco do topo
     if (disk === towerArray[towerArray.length - 1]) {
       setSelectedDisk(disk);

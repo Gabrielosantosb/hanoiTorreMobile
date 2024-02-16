@@ -9,11 +9,16 @@ import {
   HowtoPlayButtonText,
 } from "./styles";
 import { HowToPlayModal } from "../../modal/howToPlay";
+import { CustomGameModal } from "../../modal/customGame";
 
 export const Home = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [customModalVisible, setCustomModalVisible] = useState(false);
   const handleLevelPress = (level) => {
     switch (level) {
+      case "Custom":
+        navigation.navigate("CustomLevel");
+        break;
       case "Fácil":
         navigation.navigate("EasyLevel");
         break;
@@ -51,10 +56,22 @@ export const Home = ({ navigation }) => {
       </HomeButtonContainer>
 
       <HomeButtonContainer>
+        <HomeButton onPress={() => setCustomModalVisible(true)}>
+          <HomeButtonText>Customizar</HomeButtonText>
+        </HomeButton>
+      </HomeButtonContainer>
+
+      <HomeButtonContainer>
         <HowtoPlayButton onPress={() => setModalVisible(true)}>
           <HowtoPlayButtonText>Como jogar?</HowtoPlayButtonText>
         </HowtoPlayButton>
       </HomeButtonContainer>
+
+    <CustomGameModal    
+      isVisible = {customModalVisible}
+      navigation={navigation}
+      onClose={() => setCustomModalVisible(false)}
+    />
 
       <HowToPlayModal
         isVisible={modalVisible}

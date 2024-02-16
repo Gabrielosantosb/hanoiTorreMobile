@@ -7,6 +7,7 @@ import { Game } from "./src/pages/game";
 import { EasyLevel } from "./src/pages/level/EasyLevel";
 import { MediumLevel } from "./src/pages/level/MediumLevel";
 import { HardLevel } from "./src/pages/level/HardLevel";
+import { CustomLevel } from "./src/pages/level/CustomLevel";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -31,6 +32,12 @@ export default function App() {
         <Stack.Screen
           name="HardLevel"
           component={HardLevel}
+          options={{ title: "", headerTransparent: true, headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="CustomLevel"          
+          component={CustomLevel}
           options={{ title: "", headerTransparent: true, headerShown: false }}
         />
       </Stack.Navigator>

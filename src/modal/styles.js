@@ -37,3 +37,9 @@ export const ButtonText = styled.Text`
   font-weight: bold;
   text-align: center;
 `;
+
+export const ButtonContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+`;
