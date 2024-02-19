@@ -27,7 +27,7 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
 
   const selectDisk = (disk, tower) => {
     const towerArray = getTowerArray(tower);
-    
+
     // Verificar se o disco selecionado é o disco do topo
     if (disk === towerArray[towerArray.length - 1]) {
       setSelectedDisk(disk);
@@ -106,9 +106,9 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
     }
   };
 
-  const backButton = () =>{
-    navigation.pop()
-  }
+  const backButton = () => {
+    navigation.pop();
+  };
 
   const resetGame = () => {
     setTower1(numberOfDisks);
@@ -125,8 +125,8 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
   return (
     <>
       <GameContainer>
-        <BasicButton onPress={backButton} title={'Voltar'}  left />
-        <BasicButton   onPress={resetGame} title={'Resetar'} right/>
+        <BasicButton onPress={backButton} title={"Voltar"} left />
+        <BasicButton onPress={resetGame} title={"Resetar"} right />
         <StyledTowerText>
           {movements} movimentos em:
           <Timer gameOver={gameOver} resetTimer={resetTimer} />
@@ -137,7 +137,9 @@ export const Game = ({ navigation, numberOfDisks, minMoviments }) => {
             onSelectDisk={(disk) => selectDisk(disk, 1)}
             selectedDisk={selectedDisk}
             onPress={() => handleTowerPress(1)}
+            smallTower={numberOfDisks.length > 5} 
           />
+
           <TowerText>Inicio</TowerText>
         </TowerContainer>
 

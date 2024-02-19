@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { TouchableOpacity } from "react-native"
 
 export const HomeContainer = styled.View`
   flex: 1;
@@ -15,7 +16,7 @@ export const HomeTitle = styled.Text`
 `;
 
 export const HomeButtonContainer = styled.View`
-  margin-top: 20px;
+  margin-top: 20px;  
 `;
 
 export const HomeButton = styled.TouchableOpacity`
@@ -24,9 +25,21 @@ export const HomeButton = styled.TouchableOpacity`
   margin-bottom: 15px;
   border-radius: 8px;
 `;
+export const CustomGameButton = styled.TouchableOpacity`
+  
+  padding: 12px 24px;  
+  border-radius: 8px;
+`;
+
+export const CustomButtonText = styled.Text`
+  color: #fff;
+  font-size: 16px;
+`;
+
+
 
 export const HomeButtonText = styled.Text`
-  color: #fff;
+   color: ${(props) => (props.blackText ? "#000" : "#fff")};
   font-size: 18px;
   font-weight: bold;
 `;

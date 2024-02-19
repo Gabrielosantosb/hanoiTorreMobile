@@ -9,7 +9,7 @@ export const CustomLevel = ({ navigation, route}) => {
     return (
       <>
       {console.log("Numero de discos", numberOfDisks)}        
-    <Game navigation={navigation} numberOfDisks={numberOfDisks} minMoviments={7} />        
+    <Game navigation={navigation} numberOfDisks={numberOfDisks} minMoviments={null} />        
       </>
     );
   };

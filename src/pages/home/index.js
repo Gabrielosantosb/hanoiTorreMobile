@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  CustomGameButton,
   HomeButton,
   HomeButtonContainer,
   HomeButtonText,
@@ -10,6 +11,7 @@ import {
 } from "./styles";
 import { HowToPlayModal } from "../../modal/howToPlay";
 import { CustomGameModal } from "../../modal/customGame";
+import { LinearGradient } from "expo-linear-gradient";
 
 export const Home = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -56,9 +58,20 @@ export const Home = ({ navigation }) => {
       </HomeButtonContainer>
 
       <HomeButtonContainer>
-        <HomeButton onPress={() => setCustomModalVisible(true)}>
-          <HomeButtonText>Customizar</HomeButtonText>
-        </HomeButton>
+        <LinearGradient
+          colors={[
+            "#FF0000",
+            "#FF7F00",
+            "#FFFF00",
+            
+            
+          ]}
+          style={{ borderRadius: 8 }}
+        >
+          <CustomGameButton onPress={() => setCustomModalVisible(true)}>
+            <HomeButtonText blackText>Customizar</HomeButtonText>
+          </CustomGameButton>
+        </LinearGradient>
       </HomeButtonContainer>
 
       <HomeButtonContainer>
@@ -67,11 +80,11 @@ export const Home = ({ navigation }) => {
         </HowtoPlayButton>
       </HomeButtonContainer>
 
-    <CustomGameModal    
-      isVisible = {customModalVisible}
-      navigation={navigation}
-      onClose={() => setCustomModalVisible(false)}
-    />
+      <CustomGameModal
+        isVisible={customModalVisible}
+        navigation={navigation}
+        onClose={() => setCustomModalVisible(false)}
+      />
 
       <HowToPlayModal
         isVisible={modalVisible}
