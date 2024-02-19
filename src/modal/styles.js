@@ -23,15 +23,21 @@ export const Title = styled.Text`
   font-weight: bold;
   margin-bottom: 10px;
 `;
+export const TextDisk = styled.Text`
+  text-align: center;
+  font-size: 42px;
+  font-weight: bold;
 
+`
 export const Button = styled.TouchableOpacity`
   background-color: #3498db;
+  width: 30%;
   padding: 10px;
   border-radius: 5px;
   margin-top: 20px;
 `;
 
-export const ButtonText = styled.Text`
+export const ButtonText = styled.Text`  
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;

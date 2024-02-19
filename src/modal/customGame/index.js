@@ -6,6 +6,7 @@ import {
   ModalContent,
   Title,
   ButtonContainer,
+  TextDisk,
 } from "../styles";
 import { useState } from "react";
 
@@ -37,9 +38,9 @@ export const CustomGameModal = ({ navigation, isVisible, onClose }) => {
     <ModalContainer>
       <ModalContent>
         <Title>Selecione o número de discos</Title>
-        <Text style={{ textAlign: "center", fontSize: "42px" }}>
+        <TextDisk>
           {numberOfDisks.length}
-        </Text>
+        </TextDisk>
 
         <ButtonContainer>
           <Button onPress={removeDisk}>
